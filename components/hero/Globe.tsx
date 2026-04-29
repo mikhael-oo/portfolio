@@ -1,8 +1,37 @@
 // components/hero/Globe.tsx
 'use client'
-import { useRef, useEffect, useCallback } from 'react'
+import { useRef, useEffect, useCallback, useState } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
+
+const DARK = {
+  node:  0xffffff,
+  arc:   0xffffff,
+  trav0: 0xffffff,
+  trav1: 0xD5813A,
+  ring:  0xffffff,
+  atmo:  0xffffff,
+  blend: THREE.AdditiveBlending,
+  nodeOpacity: [0.9, 0.75, 0.5] as [number, number, number],
+  arcOpacity: 0.18,
+  trav0Opacity: 1.0,
+  trav1Opacity: 0.85,
+  atmoOpacity: 0.025,
+}
+const LIGHT = {
+  node:  0x2C2724,
+  arc:   0x2C2724,
+  trav0: 0xB9314F,
+  trav1: 0xC8601A,
+  ring:  0x2C2724,
+  atmo:  0x2C2724,
+  blend: THREE.NormalBlending,
+  nodeOpacity: [0.55, 0.4, 0.25] as [number, number, number],
+  arcOpacity: 0.12,
+  trav0Opacity: 0.7,
+  trav1Opacity: 0.75,
+  atmoOpacity: 0.0,
+}
 
 const R = 2.8
 const N = 300
@@ -58,7 +87,7 @@ function buildArcs(nodes: GlobeNode[]): GlobeArc[] {
   return arcs
 }
 
-function GlobeScene() {
+function GlobeScene({ isDark }: { isDark: boolean }) {
   const { gl } = useThree()
   const groupRef   = useRef<THREE.Group>(null)
   const velX       = useRef(0)
@@ -70,6 +99,9 @@ function GlobeScene() {
   const pulseRings = useRef<THREE.Mesh[]>([])
   const timeRef    = useRef(0)
   const arcsRef    = useRef<GlobeArc[]>([])
+  const nodeMats   = useRef<THREE.PointsMaterial[]>([])
+  const arcMats    = useRef<THREE.LineBasicMaterial[]>([])
+  const atmoMat    = useRef<THREE.MeshBasicMaterial | null>(null)
 
   const initScene = useCallback((group: THREE.Group) => {
     const nodes = buildNodes()
@@ -82,25 +114,30 @@ function GlobeScene() {
       const arr = n.tier === 'major' ? majPos : n.tier === 'minor' ? minPos : micPos
       arr.push(n.pos.x, n.pos.y, n.pos.z)
     })
+    const palette = isDark ? DARK : LIGHT
     const mkPoints = (pos: number[], size: number, opacity: number) => {
       const geo = new THREE.BufferGeometry()
       geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3))
-      return new THREE.Points(geo, new THREE.PointsMaterial({
-        size, opacity, transparent: true, color: 0xffffff,
-        sizeAttenuation: true, depthWrite: false, blending: THREE.AdditiveBlending,
-      }))
+      const mat = new THREE.PointsMaterial({
+        size, opacity, transparent: true, color: palette.node,
+        sizeAttenuation: true, depthWrite: false, blending: palette.blend,
+      })
+      nodeMats.current.push(mat)
+      return new THREE.Points(geo, mat)
     }
-    group.add(mkPoints(majPos, 0.08, 0.9))
-    group.add(mkPoints(minPos, 0.055, 0.75))
-    group.add(mkPoints(micPos, 0.035, 0.5))
+    group.add(mkPoints(majPos, 0.08, palette.nodeOpacity[0]))
+    group.add(mkPoints(minPos, 0.055, palette.nodeOpacity[1]))
+    group.add(mkPoints(micPos, 0.035, palette.nodeOpacity[2]))
 
     // Arcs
     arcs.forEach(arc => {
       const geo = new THREE.BufferGeometry().setFromPoints(arc.points)
-      group.add(new THREE.Line(geo, new THREE.LineBasicMaterial({
-        color: 0xffffff, opacity: 0.18, transparent: true,
-        depthWrite: false, blending: THREE.AdditiveBlending,
-      })))
+      const mat = new THREE.LineBasicMaterial({
+        color: palette.arc, opacity: palette.arcOpacity, transparent: true,
+        depthWrite: false, blending: palette.blend,
+      })
+      arcMats.current.push(mat)
+      group.add(new THREE.Line(geo, mat))
     })
 
     // Travelers
@@ -123,8 +160,8 @@ function GlobeScene() {
         sizeAttenuation: true, depthWrite: false, blending: THREE.AdditiveBlending,
       }))
     }
-    const t0 = mkTrav(p0, 0xffffff, 0.06, 1.0)
-    const t1 = mkTrav(p1, 0xD5813A, 0.07, 0.85)
+    const t0 = mkTrav(p0, palette.trav0, 0.06, palette.trav0Opacity)
+    const t1 = mkTrav(p1, palette.trav1, 0.07, palette.trav1Opacity)
     group.add(t0, t1)
     travMesh.current = [t0, t1]
 
@@ -133,8 +170,8 @@ function GlobeScene() {
       const m = new THREE.Mesh(
         new THREE.RingGeometry(R - 0.02, R + 0.02, 96),
         new THREE.MeshBasicMaterial({
-          color: 0xffffff, opacity: 0.12, transparent: true,
-          side: THREE.DoubleSide, depthWrite: false, blending: THREE.AdditiveBlending,
+          color: palette.ring, opacity: 0.12, transparent: true,
+          side: THREE.DoubleSide, depthWrite: false, blending: palette.blend,
         })
       )
       m.rotation.x = angle
@@ -144,18 +181,21 @@ function GlobeScene() {
     pulseRings.current = rings
 
     // Atmosphere shell
-    group.add(new THREE.Mesh(
-      new THREE.SphereGeometry(R + 0.25, 64, 64),
-      new THREE.MeshBasicMaterial({
-        color: 0xffffff, opacity: 0.025, transparent: true,
-        side: THREE.BackSide, depthWrite: false, blending: THREE.AdditiveBlending,
-      })
-    ))
-  }, [])
+    const am = new THREE.MeshBasicMaterial({
+      color: palette.atmo, opacity: palette.atmoOpacity, transparent: true,
+      side: THREE.BackSide, depthWrite: false, blending: palette.blend,
+    })
+    atmoMat.current = am
+    group.add(new THREE.Mesh(new THREE.SphereGeometry(R + 0.25, 64, 64), am))
+  }, [isDark])
 
   useEffect(() => {
     const group = groupRef.current
     if (!group) return
+    nodeMats.current = []
+    arcMats.current = []
+    atmoMat.current = null
+    while (group.children.length) group.remove(group.children[0])
     initScene(group)
 
     const canvas = gl.domElement
@@ -228,6 +268,17 @@ function GlobeScene() {
 }
 
 export default function Globe() {
+  const [isDark, setIsDark] = useState(false)
+
+  useEffect(() => {
+    const update = () =>
+      setIsDark(document.documentElement.getAttribute('data-theme') === 'dark')
+    update()
+    const obs = new MutationObserver(update)
+    obs.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
+    return () => obs.disconnect()
+  }, [])
+
   return (
     <Canvas
       camera={{ position: [0, 0, 7], fov: 45 }}
@@ -235,7 +286,7 @@ export default function Globe() {
       dpr={[1, 1.5]}
       style={{ position: 'absolute', inset: 0 }}
     >
-      <GlobeScene />
+      <GlobeScene isDark={isDark} />
     </Canvas>
   )
 }
