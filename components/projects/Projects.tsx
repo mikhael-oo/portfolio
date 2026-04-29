@@ -52,7 +52,7 @@ export default function Projects() {
             </div>
             <div className="proj-right">
               <span className="proj-impact">{p.impact}</span>
-              <button className="proj-arrow-btn" aria-label="Open project">↗</button>
+              <span className="proj-arrow-btn" aria-hidden="true">↗</span>
             </div>
           </a>
         ))}
