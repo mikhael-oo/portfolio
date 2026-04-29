@@ -1,13 +1,11 @@
 // components/hero/Hero.tsx
-import dynamic from 'next/dynamic'
-
-const Globe = dynamic(() => import('./Globe'), { ssr: false })
+import GlobeClient from './GlobeClient'
 
 export default function Hero() {
   return (
     <section className="hero" id="hero">
       <div className="hero-canvas-wrap">
-        <Globe />
+        <GlobeClient />
       </div>
       <div className="hero-vignette" />
       <div className="hero-content">
