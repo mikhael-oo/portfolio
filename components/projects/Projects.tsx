@@ -1,4 +1,6 @@
 // components/projects/Projects.tsx
+import FadeUp from '@/components/ui/FadeUp'
+
 const PROJECTS = [
   {
     num: '01',
@@ -37,24 +39,26 @@ const PROJECTS = [
 export default function Projects() {
   return (
     <section className="section" id="work">
-      <p className="eyebrow">Selected Work</p>
-      <h2 className="section-title">Projects that <span className="gradient-text">matter.</span></h2>
+      <FadeUp><p className="eyebrow">Selected Work</p></FadeUp>
+      <FadeUp delay={0.05}><h2 className="section-title">Projects that <span className="gradient-text">matter.</span></h2></FadeUp>
       <div className="proj-list">
-        {PROJECTS.map(p => (
-          <a key={p.num} className="proj-row" href={p.href}>
-            <span className="proj-num">{p.num}</span>
-            <div>
-              <div className="proj-title">{p.title}</div>
-              <p className="proj-desc">{p.desc}</p>
-              <div className="proj-chips">
-                {p.chips.map(c => <span key={c} className="proj-chip">{c}</span>)}
+        {PROJECTS.map((p, i) => (
+          <FadeUp key={p.num} delay={i * 0.07}>
+            <a className="proj-row" href={p.href}>
+              <span className="proj-num">{p.num}</span>
+              <div>
+                <div className="proj-title">{p.title}</div>
+                <p className="proj-desc">{p.desc}</p>
+                <div className="proj-chips">
+                  {p.chips.map(c => <span key={c} className="proj-chip">{c}</span>)}
+                </div>
               </div>
-            </div>
-            <div className="proj-right">
-              <span className="proj-impact">{p.impact}</span>
-              <span className="proj-arrow-btn" aria-hidden="true">↗</span>
-            </div>
-          </a>
+              <div className="proj-right">
+                <span className="proj-impact">{p.impact}</span>
+                <span className="proj-arrow-btn" aria-hidden="true">↗</span>
+              </div>
+            </a>
+          </FadeUp>
         ))}
       </div>
     </section>

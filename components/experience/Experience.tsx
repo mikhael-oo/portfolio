@@ -1,4 +1,6 @@
 // components/experience/Experience.tsx
+import FadeUp from '@/components/ui/FadeUp'
+
 const EXPERIENCE = [
   {
     company: 'Splunk',
@@ -37,26 +39,28 @@ const EXPERIENCE = [
 export default function Experience() {
   return (
     <section className="section-alt" id="experience">
-      <p className="eyebrow">Experience</p>
-      <h2 className="section-title">Where I&apos;ve <span className="gradient-text">worked.</span></h2>
+      <FadeUp><p className="eyebrow">Experience</p></FadeUp>
+      <FadeUp delay={0.05}><h2 className="section-title">Where I&apos;ve <span className="gradient-text">worked.</span></h2></FadeUp>
       <div className="exp-list">
-        {EXPERIENCE.map(e => (
-          <div key={e.company} className="exp-row">
-            <div>
-              <div className="exp-top">
-                <span className="exp-company">{e.company}</span>
-                <span className="exp-role">{e.role}</span>
+        {EXPERIENCE.map((e, i) => (
+          <FadeUp key={e.company} delay={i * 0.07}>
+            <div className="exp-row">
+              <div>
+                <div className="exp-top">
+                  <span className="exp-company">{e.company}</span>
+                  <span className="exp-role">{e.role}</span>
+                </div>
+                <p className="exp-desc">{e.desc}</p>
+                <div className="chips">
+                  {e.chips.map(c => <span key={c} className="chip">{c}</span>)}
+                </div>
               </div>
-              <p className="exp-desc">{e.desc}</p>
-              <div className="chips">
-                {e.chips.map(c => <span key={c} className="chip">{c}</span>)}
+              <div className="exp-right">
+                <span className="exp-dates">{e.dates}</span>
+                <span className="exp-loc">{e.location}</span>
               </div>
             </div>
-            <div className="exp-right">
-              <span className="exp-dates">{e.dates}</span>
-              <span className="exp-loc">{e.location}</span>
-            </div>
-          </div>
+          </FadeUp>
         ))}
       </div>
     </section>
