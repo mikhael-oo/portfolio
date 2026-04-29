@@ -2,6 +2,7 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
 import { Plus_Jakarta_Sans } from 'next/font/google'
+import LenisProvider from '@/lib/lenis'
 import './globals.css'
 
 const sans = Plus_Jakarta_Sans({
@@ -39,7 +40,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Script id="theme-init" strategy="beforeInteractive">
           {`(function(){var t=localStorage.getItem('portfolio-theme');document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light');})()`}
         </Script>
-        {children}
+        <LenisProvider>
+          {children}
+        </LenisProvider>
       </body>
     </html>
   )
