@@ -1,7 +1,14 @@
+// components/hero/Hero.tsx
+import dynamic from 'next/dynamic'
+
+const Globe = dynamic(() => import('./Globe'), { ssr: false })
+
 export default function Hero() {
   return (
     <section className="hero" id="hero">
-      <div className="hero-canvas-wrap" />
+      <div className="hero-canvas-wrap">
+        <Globe />
+      </div>
       <div className="hero-vignette" />
       <div className="hero-content">
         <span className="hero-name">Mikhael Opeyemi-Olatunji</span>
