@@ -8,7 +8,7 @@ const PROJECTS = [
     desc: 'Engineered data monitoring dashboards with optimized SPL queries and scalable Jsonnet templates. Built comprehensive testing pipelines with Jest, Cypress, and Storybook.',
     chips: ['React', 'TypeScript', 'SPL', 'Jsonnet', 'Cypress'],
     impact: '20% latency reduction',
-    href: '#',
+    href: 'www.splunk.com',
   },
   {
     num: '02',
@@ -34,6 +34,14 @@ const PROJECTS = [
     impact: 'mikhaelcodes.dev',
     href: '#',
   },
+  {
+    num: '05',
+    title: 'Audiophile E-commerce',
+    desc: 'E-commerce website for a fictional audio company. Built with ReactJS and Vite on the frontend, and Express with MongoDB on the backend.',
+    chips: ['ReactJS', 'Vite', 'Express', 'MongoDB'],
+    impact: 'Personal project',
+    href: 'https://audiophile-frontend-6m7uvjjxn-mikhael-oo.vercel.app/',
+  },
 ]
 
 export default function Projects() {
@@ -44,7 +52,12 @@ export default function Projects() {
       <div className="proj-list">
         {PROJECTS.map((p, i) => (
           <FadeUp key={p.num} delay={i * 0.07}>
-            <a className="proj-row" href={p.href}>
+            <a
+              className="proj-row"
+              href={p.href.startsWith('http') ? p.href : p.href === '#' ? p.href : `https://${p.href}`}
+              target={p.href !== '#' ? '_blank' : undefined}
+              rel={p.href !== '#' ? 'noopener noreferrer' : undefined}
+            >
               <span className="proj-num">{p.num}</span>
               <div>
                 <div className="proj-title">{p.title}</div>
