@@ -34,4 +34,13 @@ describe('shape generators', () => {
       expect(r).toBeLessThan(2.9)
     }
   })
+
+  it('handles n=1 without NaN', () => {
+    for (const build of SHAPE_BUILDERS) {
+      const a = build(1)
+      for (let i = 0; i < a.length; i++) {
+        expect(Number.isFinite(a[i])).toBe(true)
+      }
+    }
+  })
 })

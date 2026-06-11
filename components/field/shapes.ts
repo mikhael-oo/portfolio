@@ -17,7 +17,7 @@ function mulberry32(seed: number) {
 export function sphere(n: number): Float32Array {
   const out = new Float32Array(n * 3)
   for (let i = 0; i < n; i++) {
-    const y = 1 - (i / (n - 1)) * 2
+    const y = n > 1 ? 1 - (i / (n - 1)) * 2 : 0
     const r = Math.sqrt(Math.max(0, 1 - y * y))
     const theta = GOLDEN * i
     out[i * 3] = Math.cos(theta) * r * R
