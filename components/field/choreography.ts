@@ -12,6 +12,7 @@ export function buildAnchors(tops: number[], heights: number[], viewportH: numbe
   return tops.map((top, i) => top + heights[i] / 2 - viewportH / 2)
 }
 
+/** Requires anchors sorted ascending (callers measure sections in document order). */
 export function sampleTimeline(anchors: number[], scrollY: number): TimelineSample {
   const last = anchors.length - 1
   if (last < 1) return { from: 0, to: 0, t: 0 }

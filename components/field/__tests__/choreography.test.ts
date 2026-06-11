@@ -32,4 +32,8 @@ describe('sampleTimeline', () => {
   it('survives a degenerate zero-width segment', () => {
     expect(sampleTimeline([0, 1000, 1000, 2000], 1000).t).toBeLessThanOrEqual(1)
   })
+
+  it('reaches t=1 when scrollY is exactly on an interior anchor', () => {
+    expect(sampleTimeline(anchors, 1000)).toEqual({ from: 0, to: 1, t: 1 })
+  })
 })
