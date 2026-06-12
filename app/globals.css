@@ -284,3 +284,25 @@ body {
   background: radial-gradient(ellipse 60% 50% at 50% 42%, var(--accent-glow), transparent 70%);
 }
 main { position: relative; z-index: 1; }
+
+/* ── Dissolve (pinned beat #1) ── */
+.dissolve { height: 200vh; position: relative; }
+.dissolve-sticky {
+  position: sticky; top: 0; height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 48px;
+}
+.dissolve-pull {
+  font-size: clamp(26px, 3.6vw, 44px); font-weight: 300;
+  color: var(--text); line-height: 1.35; letter-spacing: -0.02em;
+  max-width: 760px; text-align: center; text-wrap: balance;
+}
+.dissolve-pull em { color: var(--accent); font-style: normal; font-weight: 400; }
+
+@media (prefers-reduced-motion: reduce) {
+  .dissolve { height: auto; }
+  .dissolve-sticky { position: static; height: auto; padding: 112px 48px; }
+}
+@media (max-width: 900px) {
+  .dissolve { height: 170vh; }
+}

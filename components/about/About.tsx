@@ -22,10 +22,6 @@ export default function About() {
       <div className="about-layout">
         <FadeUp delay={0.1}>
           <div>
-            <p className="about-pull">
-              I build software for the web — and I care deeply about how it{' '}
-              <em>looks and feels.</em>
-            </p>
             <p className="about-body">
               Based in Vancouver, BC. Full-stack engineer with a knack for selecting
               the right tool for each problem — from data-heavy enterprise dashboards
