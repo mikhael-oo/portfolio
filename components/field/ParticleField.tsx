@@ -64,6 +64,14 @@ function FieldScene({ isDark, reduced }: { isDark: boolean; reduced: boolean }) 
     applyFieldTheme(material, isDark)
   }, [isDark, material])
 
+  // Reduced motion: geometry holds drift positions in both buffers, so the
+  // shader must treat them as a single shape (no dissolve/sphere offsets).
+  useEffect(() => {
+    if (!reduced) return
+    material.uniforms.uShapeFrom.value = 2
+    material.uniforms.uShapeTo.value = 2
+  }, [reduced, material])
+
   // Measure section anchors; re-measure when layout changes.
   useEffect(() => {
     const measure = () => {
@@ -132,13 +140,23 @@ function FieldScene({ isDark, reduced }: { isDark: boolean; reduced: boolean }) 
     pulse.current = Math.max(0, pulse.current - delta * 0.8)
     u.uPulse.value = pulse.current
 
-    // Intro: assemble dissolve→sphere on load.
+    // Intro: assemble dissolve→sphere on load. Skipped when the page starts
+    // mid-scroll (refresh/deep-link) — the scroll block below seeds the real
+    // segment on this same first frame, before anything has rendered.
     if (!introDone.current) {
-      if (introStart.current === null) introStart.current = state.clock.elapsedTime
-      const p = Math.min((state.clock.elapsedTime - introStart.current) / INTRO_SECONDS, 1)
-      u.uProgress.value = p
-      if (p >= 1) introDone.current = true
-      return
+      if (introStart.current === null) {
+        if (window.scrollY > window.innerHeight * 0.2) {
+          introDone.current = true
+        } else {
+          introStart.current = state.clock.elapsedTime
+        }
+      }
+      if (!introDone.current) {
+        const p = Math.min((state.clock.elapsedTime - introStart.current!) / INTRO_SECONDS, 1)
+        u.uProgress.value = p
+        if (p >= 1) introDone.current = true
+        return
+      }
     }
 
     // Scroll-driven morphing.
