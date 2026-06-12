@@ -1,5 +1,8 @@
 // components/projects/Projects.tsx
 import FadeUp from '@/components/ui/FadeUp'
+import SectionTitle from '@/components/ui/SectionTitle'
+import TiltCard from '@/components/ui/TiltCard'
+import Parallax from '@/components/ui/Parallax'
 
 const PROJECTS = [
   {
@@ -48,29 +51,35 @@ export default function Projects() {
   return (
     <section className="section" id="work">
       <FadeUp><p className="eyebrow">Selected Work</p></FadeUp>
-      <FadeUp delay={0.05}><h2 className="section-title">Projects that <span className="gradient-text">matter.</span></h2></FadeUp>
+      <FadeUp delay={0.05}>
+        <Parallax distance={36}>
+          <SectionTitle>Projects that <span className="gradient-text">matter.</span></SectionTitle>
+        </Parallax>
+      </FadeUp>
       <div className="proj-list">
         {PROJECTS.map((p, i) => (
           <FadeUp key={p.num} delay={i * 0.07}>
-            <a
-              className="proj-row"
-              href={p.href.startsWith('http') ? p.href : p.href === '#' ? p.href : `https://${p.href}`}
-              target={p.href !== '#' ? '_blank' : undefined}
-              rel={p.href !== '#' ? 'noopener noreferrer' : undefined}
-            >
-              <span className="proj-num">{p.num}</span>
-              <div>
-                <div className="proj-title">{p.title}</div>
-                <p className="proj-desc">{p.desc}</p>
-                <div className="proj-chips">
-                  {p.chips.map(c => <span key={c} className="proj-chip">{c}</span>)}
+            <TiltCard max={2}>
+              <a
+                className="proj-row"
+                href={p.href.startsWith('http') ? p.href : p.href === '#' ? p.href : `https://${p.href}`}
+                target={p.href !== '#' ? '_blank' : undefined}
+                rel={p.href !== '#' ? 'noopener noreferrer' : undefined}
+              >
+                <span className="proj-num">{p.num}</span>
+                <div>
+                  <div className="proj-title">{p.title}</div>
+                  <p className="proj-desc">{p.desc}</p>
+                  <div className="proj-chips">
+                    {p.chips.map(c => <span key={c} className="proj-chip">{c}</span>)}
+                  </div>
                 </div>
-              </div>
-              <div className="proj-right">
-                <span className="proj-impact">{p.impact}</span>
-                <span className="proj-arrow-btn" aria-hidden="true">↗</span>
-              </div>
-            </a>
+                <div className="proj-right">
+                  <span className="proj-impact">{p.impact}</span>
+                  <span className="proj-arrow-btn" aria-hidden="true">↗</span>
+                </div>
+              </a>
+            </TiltCard>
           </FadeUp>
         ))}
       </div>

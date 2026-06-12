@@ -2,6 +2,7 @@
 'use client'
 import { useState } from 'react'
 import FadeUp from '@/components/ui/FadeUp'
+import Magnetic from '@/components/ui/Magnetic'
 
 const EMAIL = 'mikhaelolat@gmail.com'
 
@@ -36,9 +37,11 @@ export default function Contact() {
           </p>
         </FadeUp>
         <FadeUp delay={0.15}>
-          <button className="email-btn" onClick={handleCopy}>
-            {copied ? 'Copied! ✓' : EMAIL}
-          </button>
+          <Magnetic strength={0.2}>
+            <button className="email-btn" onClick={handleCopy}>
+              {copied ? 'Copied! ✓' : EMAIL}
+            </button>
+          </Magnetic>
         </FadeUp>
         <FadeUp delay={0.2}>
           <nav className="contact-links">

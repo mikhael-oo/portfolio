@@ -1,5 +1,7 @@
 // components/experience/Experience.tsx
 import FadeUp from '@/components/ui/FadeUp'
+import SectionTitle from '@/components/ui/SectionTitle'
+import Parallax from '@/components/ui/Parallax'
 
 const EXPERIENCE = [
   {
@@ -40,7 +42,11 @@ export default function Experience() {
   return (
     <section className="section-alt" id="experience">
       <FadeUp><p className="eyebrow">Experience</p></FadeUp>
-      <FadeUp delay={0.05}><h2 className="section-title">Where I&apos;ve <span className="gradient-text">worked.</span></h2></FadeUp>
+      <FadeUp delay={0.05}>
+        <Parallax distance={30}>
+          <SectionTitle>Where I&apos;ve <span className="gradient-text">worked.</span></SectionTitle>
+        </Parallax>
+      </FadeUp>
       <div className="exp-list">
         {EXPERIENCE.map((e, i) => (
           <FadeUp key={e.company} delay={i * 0.07}>

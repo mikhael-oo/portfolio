@@ -1,5 +1,9 @@
 // components/about/About.tsx
 import FadeUp from '@/components/ui/FadeUp'
+import SectionTitle from '@/components/ui/SectionTitle'
+import CountUp from '@/components/ui/CountUp'
+import TiltCard from '@/components/ui/TiltCard'
+import Parallax from '@/components/ui/Parallax'
 
 const STACK = [
   { name: 'React · TypeScript',         tag: 'Core',         core: true  },
@@ -17,7 +21,9 @@ export default function About() {
     <section className="section-alt" id="about">
       <FadeUp><p className="eyebrow">About</p></FadeUp>
       <FadeUp delay={0.05}>
-        <h2 className="section-title">Who I <span className="gradient-text">am.</span></h2>
+        <Parallax distance={24}>
+          <SectionTitle>Who I <span className="gradient-text">am.</span></SectionTitle>
+        </Parallax>
       </FadeUp>
       <div className="about-layout">
         <FadeUp delay={0.1}>
@@ -36,24 +42,26 @@ export default function About() {
               FreshPrep, DivTech, and BC Liquor Distribution Branch.
             </p>
             <div className="stats">
-              <div><span className="stat-val">4+</span><span className="stat-lbl">Years exp.</span></div>
-              <div><span className="stat-val">4</span><span className="stat-lbl">Companies</span></div>
-              <div><span className="stat-val">B.Sc.</span><span className="stat-lbl">SFU · 2024</span></div>
+              <div><CountUp value="4+" /><span className="stat-lbl">Years exp.</span></div>
+              <div><CountUp value="4" /><span className="stat-lbl">Companies</span></div>
+              <div><CountUp value="B.Sc." /><span className="stat-lbl">SFU · 2024</span></div>
             </div>
           </div>
         </FadeUp>
         <FadeUp delay={0.15}>
-          <div className="stack-panel">
-            <div className="stack-panel-head">
-              <span>Stack</span><em>Technologies</em>
-            </div>
-            {STACK.map(item => (
-              <div key={item.name} className="stack-item">
-                <span className="stack-name">{item.name}</span>
-                <span className={`stack-tag${item.core ? ' core' : ''}`}>{item.tag}</span>
+          <TiltCard max={4}>
+            <div className="stack-panel">
+              <div className="stack-panel-head">
+                <span>Stack</span><em>Technologies</em>
               </div>
-            ))}
-          </div>
+              {STACK.map(item => (
+                <div key={item.name} className="stack-item">
+                  <span className="stack-name">{item.name}</span>
+                  <span className={`stack-tag${item.core ? ' core' : ''}`}>{item.tag}</span>
+                </div>
+              ))}
+            </div>
+          </TiltCard>
         </FadeUp>
       </div>
     </section>
