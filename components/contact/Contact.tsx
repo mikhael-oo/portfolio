@@ -20,8 +20,8 @@ export default function Contact() {
   }
 
   return (
-    <div className="contact-pin">
-      <section className="contact" id="contact">
+    <div className="contact-pin" id="contact">
+      <section className="contact">
         <div className="contact-glow" />
         <FadeUp><p className="eyebrow" style={{ position: 'relative', zIndex: 1 }}>Contact</p></FadeUp>
         <FadeUp delay={0.05}>

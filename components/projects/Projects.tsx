@@ -32,7 +32,7 @@ const PROJECTS = [
   {
     num: '04',
     title: 'This Portfolio',
-    desc: "Designed and built from scratch — 3D interactive globe, smooth scroll, dark/light mode. The site you're currently on.",
+    desc: "Designed and built from scratch — a scroll-driven morphing particle field, smooth scroll, dark/light mode. The site you're currently on.",
     chips: ['Next.js', 'React Three Fiber', 'Framer Motion', 'TypeScript'],
     impact: 'mikhaelcodes.dev',
     href: '#',

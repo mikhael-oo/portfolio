@@ -109,11 +109,13 @@ function FieldScene({ isDark, reduced }: { isDark: boolean; reduced: boolean }) 
     const hero = document.getElementById('hero')
     if (!hero) return
     const onDown = (e: PointerEvent) => {
+      if (e.pointerType !== 'mouse') return
       dragging.current = true
       lastX.current = e.clientX
       velY.current = 0
     }
     const onMove = (e: PointerEvent) => {
+      if (e.pointerType !== 'mouse') return
       if (!dragging.current) return
       velY.current = (e.clientX - lastX.current) * 0.008
       lastX.current = e.clientX
