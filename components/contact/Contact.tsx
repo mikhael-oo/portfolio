@@ -47,8 +47,10 @@ export default function Contact() {
             <a href="https://twitter.com/tha_mikky" target="_blank" rel="noopener noreferrer">Twitter</a>
           </nav>
         </FadeUp>
-        <p className="copyright">© 2025 Mikhael Opeyemi-Olatunji</p>
       </section>
+      <footer className="site-footer">
+        <p className="copyright">© 2025 Mikhael Opeyemi-Olatunji</p>
+      </footer>
     </div>
   )
 }

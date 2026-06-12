@@ -249,11 +249,24 @@ body {
 .contact-links { display: flex; gap: 28px; margin-top: 48px; position: relative; z-index: 1; }
 .contact-links a { font-size: 13px; color: var(--text-dim); text-decoration: none; transition: color 0.15s; letter-spacing: 0.02em; }
 .contact-links a:hover { color: var(--text-muted); }
-.copyright { font-size: 11px; color: var(--text-dim); margin-top: 64px; position: relative; z-index: 1; }
+.copyright { font-size: 11px; color: var(--text-dim); margin-top: 0; position: relative; z-index: 1; }
+
+.site-footer {
+  height: 50vh; position: relative;
+  display: flex; align-items: flex-end; justify-content: center;
+  padding-bottom: 40px;
+}
 
 @media (prefers-reduced-motion: reduce) {
   .contact-pin { height: auto; }
   .contact { position: static; height: auto; padding: 140px 48px; }
+  .site-footer { height: auto; padding: 24px 0 32px; }
+}
+
+@media (max-height: 600px) {
+  .contact-pin { height: auto; }
+  .contact { position: static; height: auto; padding: 100px 48px; }
+  .site-footer { height: auto; padding: 24px 0 32px; }
 }
 
 /* ── Responsive ── */
