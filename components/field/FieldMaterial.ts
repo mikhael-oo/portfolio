@@ -51,7 +51,7 @@ const vertexShader = /* glsl */ `
     vec3 to   = shapeMotion(uShapeTo,   aPosTo,   uTime, aScatter);
     vec4 mv = modelViewMatrix * vec4(mix(from, to, p), 1.0);
     gl_Position = projectionMatrix * mv;
-    gl_PointSize = uSize * (0.6 + aTier) * uPixelRatio * (30.0 / -mv.z);
+    gl_PointSize = max(1.0, uSize * (0.6 + aTier) * uPixelRatio * (30.0 / max(0.1, -mv.z)));
     vTier = aTier;
   }
 `
@@ -104,5 +104,4 @@ export function applyFieldTheme(mat: THREE.ShaderMaterial, isDark: boolean): voi
   ;(mat.uniforms.uAccent2.value as THREE.Color).set(t.accent2)
   mat.uniforms.uOpacity.value = t.opacity
   mat.blending = t.blending
-  mat.needsUpdate = true
 }
