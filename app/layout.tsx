@@ -2,6 +2,7 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
 import { Plus_Jakarta_Sans } from 'next/font/google'
+import { MotionConfig } from 'framer-motion'
 import LenisProvider from '@/lib/lenis'
 import './globals.css'
 
@@ -41,7 +42,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {`(function(){var t=localStorage.getItem('portfolio-theme');document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light');})()`}
         </Script>
         <LenisProvider>
-          {children}
+          <MotionConfig reducedMotion="user">
+            {children}
+          </MotionConfig>
         </LenisProvider>
       </body>
     </html>

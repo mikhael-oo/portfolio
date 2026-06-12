@@ -108,11 +108,9 @@ body {
 .hero {
   position: relative; height: 100vh; min-height: 640px;
   display: flex; align-items: center; justify-content: center;
-  overflow: hidden; background: var(--bg);
+  overflow: hidden; background: transparent; cursor: grab;
 }
-.hero-canvas-wrap { position: absolute; inset: 0; z-index: 0; }
-.hero-canvas-wrap canvas { cursor: grab; }
-.hero-canvas-wrap canvas:active { cursor: grabbing; }
+.hero:active { cursor: grabbing; }
 .hero-vignette {
   position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background: radial-gradient(

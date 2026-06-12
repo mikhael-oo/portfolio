@@ -1,12 +1,7 @@
 // components/hero/Hero.tsx
-import GlobeClient from './GlobeClient'
-
 export default function Hero() {
   return (
     <section className="hero" id="hero">
-      <div className="hero-canvas-wrap">
-        <GlobeClient />
-      </div>
       <div className="hero-vignette" />
       <div className="hero-content">
         <span className="hero-name">Mikhael Opeyemi-Olatunji</span>
