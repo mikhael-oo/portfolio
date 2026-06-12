@@ -58,6 +58,10 @@ body {
 .nav-wrap {
   position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
   z-index: 100; pointer-events: none;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-wrap.nav-hidden {
+  transform: translateX(-50%) translateY(-180%);
 }
 .nav {
   display: flex; align-items: center; gap: 2px;
@@ -86,6 +90,12 @@ body {
   display: flex; align-items: center;
 }
 .nav-links a:hover { color: var(--text); background: var(--chip-bg); }
+.nav-links a.nav-active { color: var(--text); }
+.nav-links a.nav-active::after {
+  content: ''; display: inline-block; width: 4px; height: 4px;
+  border-radius: 50%; background: var(--accent); margin-left: 6px;
+  vertical-align: 2px;
+}
 .nav-link-icon { display: none; width: 16px; height: 16px; flex-shrink: 0; }
 .nav-resume {
   margin-left: 4px; font-size: 12px; font-weight: 600;
