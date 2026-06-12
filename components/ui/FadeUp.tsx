@@ -16,7 +16,7 @@ export default function FadeUp({ children, delay = 0, className, style }: FadeUp
     <motion.div
       ref={ref}
       className={className}
-      style={style}
+      style={{ position: 'relative', ...style }}
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.6, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
