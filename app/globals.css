@@ -18,7 +18,7 @@ html[data-theme="dark"] {
   --chip-bg: rgba(255,255,255,0.05);
 }
 
-html { transition: background 0.4s, color 0.3s; scroll-behavior: auto; scroll-padding-top: 88px; }
+html { position: relative; transition: background 0.4s, color 0.3s; scroll-behavior: auto; scroll-padding-top: 88px; }
 
 body {
   font-family: var(--font-sans), system-ui, sans-serif;
