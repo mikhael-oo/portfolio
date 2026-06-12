@@ -276,3 +276,13 @@ body {
   .stats { gap: 28px; }
   .stat-val { font-size: 28px; }
 }
+
+/* ── Particle field ── */
+.field-wrap {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+}
+.field-fallback {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background: radial-gradient(ellipse 60% 50% at 50% 42%, var(--accent-glow), transparent 70%);
+}
+main { position: relative; z-index: 1; }
