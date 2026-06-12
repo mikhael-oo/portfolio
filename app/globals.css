@@ -63,6 +63,9 @@ body {
 .nav-wrap.nav-hidden {
   transform: translateX(-50%) translateY(-180%);
 }
+.nav-wrap.nav-hidden:focus-within {
+  transform: translateX(-50%);
+}
 .nav {
   display: flex; align-items: center; gap: 2px;
   padding: 6px 6px 6px 18px;
@@ -271,6 +274,7 @@ body {
   .contact-pin { height: auto; }
   .contact { position: static; height: auto; padding: 140px 48px; }
   .site-footer { height: auto; padding: 24px 0 32px; }
+  .nav-wrap { transition: none; }
 }
 
 @media (max-height: 600px) {
