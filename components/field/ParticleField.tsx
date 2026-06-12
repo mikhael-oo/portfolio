@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
-import { SHAPE_BUILDERS } from './shapes'
+import { SHAPE_BUILDERS, R } from './shapes'
 import { buildAnchors, sampleTimeline } from './choreography'
 import { createFieldMaterial, applyFieldTheme } from './FieldMaterial'
 
@@ -26,7 +26,7 @@ function webglAvailable(): boolean {
 }
 
 function FieldScene({ isDark, reduced }: { isDark: boolean; reduced: boolean }) {
-  const { gl } = useThree()
+  const { gl, camera, size } = useThree()
   const groupRef = useRef<THREE.Group>(null)
   const count = useMemo(pickCount, [])
   const shapes = useMemo(() => SHAPE_BUILDERS.map(b => b(count)), [count])
@@ -63,6 +63,14 @@ function FieldScene({ isDark, reduced }: { isDark: boolean; reduced: boolean }) 
   useEffect(() => {
     applyFieldTheme(material, isDark)
   }, [isDark, material])
+
+  // On narrow viewports the vertical fov leaves little horizontal room, so
+  // pull the camera back until the hero sphere fits, never closer than 7.
+  useEffect(() => {
+    const aspect = size.width / size.height
+    const halfFov = (45 * Math.PI) / 360
+    camera.position.z = Math.max(7, (R * 0.85) / (Math.tan(halfFov) * aspect))
+  }, [camera, size])
 
   // Reduced motion: geometry holds drift positions in both buffers, so the
   // shader must treat them as a single shape (no dissolve/sphere offsets).
