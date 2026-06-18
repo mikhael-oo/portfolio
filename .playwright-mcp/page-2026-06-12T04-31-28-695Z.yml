@@ -1,0 +1,248 @@
+- main [ref=e2]:
+  - navigation [ref=e3]:
+    - link "Mikhael." [ref=e4] [cursor=pointer]:
+      - /url: "#"
+      - text: Mikhael
+      - emphasis [ref=e5]: .
+    - generic [ref=e6]:
+      - list [ref=e7]:
+        - listitem [ref=e8]:
+          - link "About" [ref=e9] [cursor=pointer]:
+            - /url: "#about"
+            - generic [ref=e10]: About
+        - listitem [ref=e11]:
+          - link "Work" [ref=e12] [cursor=pointer]:
+            - /url: "#work"
+            - generic [ref=e13]: Work
+        - listitem [ref=e14]:
+          - link "Experience" [ref=e15] [cursor=pointer]:
+            - /url: "#experience"
+            - generic [ref=e16]: Experience
+        - listitem [ref=e17]:
+          - link "Contact" [ref=e18] [cursor=pointer]:
+            - /url: "#contact"
+            - generic [ref=e19]: Contact
+      - link "Resume ↗" [ref=e20] [cursor=pointer]:
+        - /url: /resume.pdf
+      - button "Toggle theme" [ref=e21] [cursor=pointer]: ◐
+  - generic [ref=e22]:
+    - generic [ref=e23]:
+      - generic:
+        - generic: Mikhael Opeyemi-Olatunji
+        - heading "Building the web, one layer at a time." [level=1]
+        - paragraph:
+          - text: Full-stack engineer · Vancouver, BC
+          - text: Currently at Splunk
+        - link "View my work ↓" [ref=e24] [cursor=pointer]:
+          - /url: "#work"
+    - generic [ref=e25]: scroll ↓
+  - paragraph [ref=e28]:
+    - text: I build software for the web — and I care deeply about how it
+    - emphasis [ref=e29]: looks and feels.
+  - generic [ref=e30]:
+    - paragraph [ref=e32]: About
+    - heading "Who I am." [level=2] [ref=e35]
+    - generic [ref=e36]:
+      - generic [ref=e38]:
+        - paragraph [ref=e39]: Based in Vancouver, BC. Full-stack engineer with a knack for selecting the right tool for each problem — from data-heavy enterprise dashboards to polished consumer products.
+        - paragraph [ref=e40]: Beyond code, I find inspiration in poetry, martial arts, and somatic movement. I believe the best software is made by people who notice things.
+        - paragraph [ref=e41]: Currently at Splunk building monitoring infrastructure. Previously at FreshPrep, DivTech, and BC Liquor Distribution Branch.
+        - generic [ref=e42]:
+          - generic [ref=e43]:
+            - generic [ref=e44]: 0+
+            - generic [ref=e45]: Years exp.
+          - generic [ref=e46]:
+            - generic [ref=e47]: "0"
+            - generic [ref=e48]: Companies
+          - generic [ref=e49]:
+            - generic [ref=e50]: B.Sc.
+            - generic [ref=e51]: SFU · 2024
+      - generic [ref=e54]:
+        - generic [ref=e55]:
+          - generic [ref=e56]: Stack
+          - emphasis [ref=e57]: Technologies
+        - generic [ref=e58]:
+          - generic [ref=e59]: React · TypeScript
+          - generic [ref=e60]: Core
+        - generic [ref=e61]:
+          - generic [ref=e62]: Vue.js · Ruby on Rails
+          - generic [ref=e63]: Core
+        - generic [ref=e64]:
+          - generic [ref=e65]: Next.js · Node.js
+          - generic [ref=e66]: Core
+        - generic [ref=e67]:
+          - generic [ref=e68]: PostgreSQL · MongoDB
+          - generic [ref=e69]: Data
+        - generic [ref=e70]:
+          - generic [ref=e71]: Docker · GCP · AWS
+          - generic [ref=e72]: Infra
+        - generic [ref=e73]:
+          - generic [ref=e74]: Cypress · Jest · Storybook
+          - generic [ref=e75]: Testing
+        - generic [ref=e76]:
+          - generic [ref=e77]: Three.js · Framer Motion
+          - generic [ref=e78]: Creative
+        - generic [ref=e79]:
+          - generic [ref=e80]: SPL · Jsonnet
+          - generic [ref=e81]: Observability
+  - generic [ref=e82]:
+    - paragraph [ref=e84]: Selected Work
+    - heading "Projects that matter." [level=2] [ref=e87]
+    - generic [ref=e88]:
+      - link "01 Splunk Monitoring Dashboards Engineered data monitoring dashboards with optimized SPL queries and scalable Jsonnet templates. Built comprehensive testing pipelines with Jest, Cypress, and Storybook. React TypeScript SPL Jsonnet Cypress 20% latency reduction" [ref=e91] [cursor=pointer]:
+        - /url: https://www.splunk.com
+        - generic [ref=e92]: "01"
+        - generic [ref=e93]:
+          - generic [ref=e94]: Splunk Monitoring Dashboards
+          - paragraph [ref=e95]: Engineered data monitoring dashboards with optimized SPL queries and scalable Jsonnet templates. Built comprehensive testing pipelines with Jest, Cypress, and Storybook.
+          - generic [ref=e96]:
+            - generic [ref=e97]: React
+            - generic [ref=e98]: TypeScript
+            - generic [ref=e99]: SPL
+            - generic [ref=e100]: Jsonnet
+            - generic [ref=e101]: Cypress
+        - generic [ref=e102]:
+          - generic [ref=e103]: 20% latency reduction
+          - generic [ref=e104]: ↗
+      - link "02 Personal Finance Manager Full-stack web application for tracking personal finances — budgeting, expense categorization, and reporting. PostgreSQL-backed REST API with a clean React frontend. React Express PostgreSQL Tailwind Personal project" [ref=e107] [cursor=pointer]:
+        - /url: "#"
+        - generic [ref=e108]: "02"
+        - generic [ref=e109]:
+          - generic [ref=e110]: Personal Finance Manager
+          - paragraph [ref=e111]: Full-stack web application for tracking personal finances — budgeting, expense categorization, and reporting. PostgreSQL-backed REST API with a clean React frontend.
+          - generic [ref=e112]:
+            - generic [ref=e113]: React
+            - generic [ref=e114]: Express
+            - generic [ref=e115]: PostgreSQL
+            - generic [ref=e116]: Tailwind
+        - generic [ref=e117]:
+          - generic [ref=e118]: Personal project
+          - generic [ref=e119]: ↗
+      - link "03 DivTech Frontend Built frontend infrastructure with Next.js App Router and server components. Custom auth middleware securing protected routes across the application. Next.js TypeScript TailwindCSS AWS Contract" [ref=e122] [cursor=pointer]:
+        - /url: "#"
+        - generic [ref=e123]: "03"
+        - generic [ref=e124]:
+          - generic [ref=e125]: DivTech Frontend
+          - paragraph [ref=e126]: Built frontend infrastructure with Next.js App Router and server components. Custom auth middleware securing protected routes across the application.
+          - generic [ref=e127]:
+            - generic [ref=e128]: Next.js
+            - generic [ref=e129]: TypeScript
+            - generic [ref=e130]: TailwindCSS
+            - generic [ref=e131]: AWS
+        - generic [ref=e132]:
+          - generic [ref=e133]: Contract
+          - generic [ref=e134]: ↗
+      - link "04 This Portfolio Designed and built from scratch — 3D interactive globe, smooth scroll, dark/light mode. The site you're currently on. Next.js React Three Fiber Framer Motion TypeScript mikhaelcodes.dev" [ref=e137] [cursor=pointer]:
+        - /url: "#"
+        - generic [ref=e138]: "04"
+        - generic [ref=e139]:
+          - generic [ref=e140]: This Portfolio
+          - paragraph [ref=e141]: Designed and built from scratch — 3D interactive globe, smooth scroll, dark/light mode. The site you're currently on.
+          - generic [ref=e142]:
+            - generic [ref=e143]: Next.js
+            - generic [ref=e144]: React Three Fiber
+            - generic [ref=e145]: Framer Motion
+            - generic [ref=e146]: TypeScript
+        - generic [ref=e147]:
+          - generic [ref=e148]: mikhaelcodes.dev
+          - generic [ref=e149]: ↗
+      - link "05 Audiophile E-commerce E-commerce website for a fictional audio company. Built with ReactJS and Vite on the frontend, and Express with MongoDB on the backend. ReactJS Vite Express MongoDB Personal project" [ref=e152] [cursor=pointer]:
+        - /url: https://audiophile-frontend-6m7uvjjxn-mikhael-oo.vercel.app/
+        - generic [ref=e153]: "05"
+        - generic [ref=e154]:
+          - generic [ref=e155]: Audiophile E-commerce
+          - paragraph [ref=e156]: E-commerce website for a fictional audio company. Built with ReactJS and Vite on the frontend, and Express with MongoDB on the backend.
+          - generic [ref=e157]:
+            - generic [ref=e158]: ReactJS
+            - generic [ref=e159]: Vite
+            - generic [ref=e160]: Express
+            - generic [ref=e161]: MongoDB
+        - generic [ref=e162]:
+          - generic [ref=e163]: Personal project
+          - generic [ref=e164]: ↗
+  - generic [ref=e165]:
+    - paragraph [ref=e167]: Experience
+    - heading "Where I've worked." [level=2] [ref=e170]
+    - generic [ref=e171]:
+      - generic [ref=e173]:
+        - generic [ref=e174]:
+          - generic [ref=e175]:
+            - generic [ref=e176]: Splunk
+            - generic [ref=e177]: Software Engineer
+          - paragraph [ref=e178]: Engineered data monitoring dashboards with optimized SPL queries, reducing latency by 20%. Designed scalable Jsonnet templates cutting cloud deployment setup by 25%. Built testing pipelines with Jest, Cypress, and Storybook + Loki, reducing regression issues by 15%.
+          - generic [ref=e179]:
+            - generic [ref=e180]: React
+            - generic [ref=e181]: TypeScript
+            - generic [ref=e182]: SPL
+            - generic [ref=e183]: Jsonnet
+            - generic [ref=e184]: Cypress
+            - generic [ref=e185]: Loki
+            - generic [ref=e186]: CI/CD
+        - generic [ref=e187]:
+          - generic [ref=e188]: Jan 2025 – Present
+          - generic [ref=e189]: Vancouver, BC
+      - generic [ref=e191]:
+        - generic [ref=e192]:
+          - generic [ref=e193]:
+            - generic [ref=e194]: Fresh Prep
+            - generic [ref=e195]: Fullstack Developer
+          - paragraph [ref=e196]: Spearheaded features using Vue.js and Ruby on Rails, driving a 10% surge in user engagement. Integrated Contentful CMS to streamline content management. Implemented UI testing with Mocha, Chai, and Puppeteer.
+          - generic [ref=e197]:
+            - generic [ref=e198]: Vue.js
+            - generic [ref=e199]: Ruby on Rails
+            - generic [ref=e200]: Docker
+            - generic [ref=e201]: GCP
+            - generic [ref=e202]: PostgreSQL
+            - generic [ref=e203]: Mocha
+        - generic [ref=e204]:
+          - generic [ref=e205]: Sep 2023 – Jan 2025
+          - generic [ref=e206]: Vancouver, BC
+      - generic [ref=e208]:
+        - generic [ref=e209]:
+          - generic [ref=e210]:
+            - generic [ref=e211]: DivTech
+            - generic [ref=e212]: Frontend Engineer · Contract
+          - paragraph [ref=e213]: Built frontend infrastructure with Next.js App Router and server components for dynamic routing and SSR. Implemented custom auth middleware securing protected routes across the application.
+          - generic [ref=e214]:
+            - generic [ref=e215]: Next.js
+            - generic [ref=e216]: TypeScript
+            - generic [ref=e217]: TailwindCSS
+            - generic [ref=e218]: ShadcnUI
+            - generic [ref=e219]: PostgreSQL
+            - generic [ref=e220]: AWS
+        - generic [ref=e221]:
+          - generic [ref=e222]: Feb 2024 – Jun 2024
+          - generic [ref=e223]: Vancouver, BC
+      - generic [ref=e225]:
+        - generic [ref=e226]:
+          - generic [ref=e227]:
+            - generic [ref=e228]: BC Liquor
+            - generic [ref=e229]: Java Developer · Co-op
+          - paragraph [ref=e230]: Developed a web app prototype replacing an expired WebEx subscription using Spring Boot. Monitored and debugged Java ETLs and maintained Oracle databases ensuring stable business operations.
+          - generic [ref=e231]:
+            - generic [ref=e232]: Spring Boot
+            - generic [ref=e233]: Java
+            - generic [ref=e234]: JavaScript
+            - generic [ref=e235]: Oracle DB
+            - generic [ref=e236]: ETLs
+        - generic [ref=e237]:
+          - generic [ref=e238]: May 2022 – Dec 2022
+          - generic [ref=e239]: Vancouver, BC
+  - generic [ref=e240]:
+    - generic [ref=e241]:
+      - paragraph [ref=e243]: Contact
+      - heading "Let's build something together." [level=2] [ref=e245]:
+        - text: Let's build
+        - text: something together.
+      - paragraph [ref=e247]:
+        - text: Open to new opportunities and collaborations.
+        - text: I respond to every message.
+      - button "mikhaelolat@gmail.com" [ref=e250] [cursor=pointer]
+      - navigation [ref=e252]:
+        - link "LinkedIn" [ref=e253] [cursor=pointer]:
+          - /url: https://linkedin.com/in/mikhael-opeyemi
+        - link "GitHub" [ref=e254] [cursor=pointer]:
+          - /url: https://github.com/mikhaelolat
+        - link "Twitter" [ref=e255] [cursor=pointer]:
+          - /url: https://twitter.com/tha_mikky
+    - paragraph [ref=e257]: © 2025 Mikhael Opeyemi-Olatunji
