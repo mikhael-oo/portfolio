@@ -5,7 +5,7 @@ import Parallax from '@/components/ui/Parallax'
 
 const EXPERIENCE = [
   {
-    company: 'Splunk',
+    company: 'Splunk (Cisco)',
     role: 'Software Engineer',
     dates: 'Jan 2025 – Present',
     location: 'Vancouver, BC',

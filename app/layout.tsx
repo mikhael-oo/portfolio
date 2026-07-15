@@ -16,7 +16,7 @@ const sans = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: 'Mikhael Opeyemi-Olatunji — Software Engineer',
-  description: 'Full-stack engineer based in Vancouver, BC. Currently at Splunk.',
+  description: 'Software engineer based in Vancouver, BC. Currently at Splunk.',
   metadataBase: new URL('https://mikhaelcodes.dev'),
   alternates: { canonical: 'https://mikhaelcodes.dev' },
   openGraph: {

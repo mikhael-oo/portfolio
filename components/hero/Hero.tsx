@@ -14,8 +14,8 @@ export default function Hero() {
             <span className="gradient-text">one layer at a time.</span>
           </h1>
           <p className="hero-sub">
-            Full-stack engineer · Vancouver, BC<br />
-            Currently at Splunk
+            Software engineer · Vancouver, BC<br />
+            Currently at Splunk, a Cisco company
           </p>
           <Magnetic>
             <a href="#work" className="hero-cta">View my work ↓</a>

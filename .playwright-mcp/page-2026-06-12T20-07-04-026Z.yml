@@ -33,7 +33,7 @@
           - heading "Building the web, one layer at a time." [level=1]
           - paragraph:
             - text: Full-stack engineer · Vancouver, BC
-            - text: Currently at Splunk
+            - text: Currently at Splunk, a Cisco company
           - link "View my work ↓" [ref=e24] [cursor=pointer]:
             - /url: "#work"
       - generic [ref=e25]: scroll ↓
@@ -47,7 +47,7 @@
         - generic [ref=e38]:
           - paragraph [ref=e39]: Based in Vancouver, BC. Full-stack engineer with a knack for selecting the right tool for each problem — from data-heavy enterprise dashboards to polished consumer products.
           - paragraph [ref=e40]: Beyond code, I find inspiration in poetry, martial arts, and somatic movement. I believe the best software is made by people who notice things.
-          - paragraph [ref=e41]: Currently at Splunk building monitoring infrastructure. Previously at FreshPrep, DivTech, and BC Liquor Distribution Branch.
+          - paragraph [ref=e41]: Currently at Cisco, building monitoring infrastructure. Previously at FreshPrep, DivTech, and BC Liquor Distribution Branch.
           - generic [ref=e42]:
             - generic [ref=e43]:
               - generic [ref=e44]: 0+

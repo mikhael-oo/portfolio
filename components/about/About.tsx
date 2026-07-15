@@ -38,7 +38,7 @@ export default function About() {
               movement. I believe the best software is made by people who notice things.
             </p>
             <p className="about-body">
-              Currently at Splunk building monitoring infrastructure. Previously at
+              Currently at Splunk (Cisco), building monitoring infrastructure. Previously at
               FreshPrep, DivTech, and BC Liquor Distribution Branch.
             </p>
             <div className="stats">
